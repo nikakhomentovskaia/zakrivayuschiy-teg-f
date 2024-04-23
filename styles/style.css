@@ -22,6 +22,7 @@
   background-color: var(--bg-color);
   background-image: var(--bg-image);
   background-size: var(--bg-size);
+  background-repeat: no-repeat;
   color: var(--accent-color);
   padding: 0 clamp(0rem, 34.648vw - 8.121rem, 23.063rem);
 }
@@ -159,7 +160,7 @@
   justify-content: flex-end;
 }
 
-.posts-menu__watermark { 
+.posts-menu__watermark {
   position: absolute;
   z-index: 1;
   font-family: var(--accent-font);
