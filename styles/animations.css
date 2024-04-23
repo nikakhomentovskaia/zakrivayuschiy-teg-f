@@ -12,3 +12,45 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+/*анимация*/
+
+@keyframes moving {
+    from {
+      inset-inline-start: -20px;
+    }
+    to {
+      inset-inline-start: -16px;
+    }
+  }
+  
+  @keyframes core-coloring {
+    100% {
+      fill: var(--core-color-active);
+    }
+  }
+  
+  @keyframes main-body-coloring {
+    100% {
+      fill: var(--main-body-color-active);
+    }
+  }
+  
+  @keyframes contour-coloring {
+    100% {
+      fill: var(--core-color-active);
+    }
+  }
+  
+  @keyframes icon-scaling {
+    100% {
+      transform: scale(1.5);
+      transform-origin: center;
+    }
+  }
+  
+  @keyframes sparks-coloring {
+    100% {
+      fill: var(--sparks-fill-color);
+    }
+  }
