@@ -13,44 +13,189 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
 
-/*анимация*/
+/*animation*/
 
 @keyframes moving {
-    from {
-      inset-inline-start: -20px;
-    }
-    to {
-      inset-inline-start: -16px;
-    }
+  from {
+    inset-inline-start: -20px;
   }
+  to {
+    inset-inline-start: -16px;
+  }
+}
+
+@keyframes core-coloring {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: var(--core-color-active, #f00000);
+  }
+}
   
-  @keyframes core-coloring {
-    100% {
-      fill: var(--core-color-active);
-    }
+@keyframes main-body-coloring {
+  0% {
+    fill: transparent;
   }
+
+  100% {
+    fill: var(--main-body-color-active, #f00000);
+  }
+}
+
+@keyframes back-main-body-coloring {
+  0% {
+    fill: var(--main-body-color-active, #f00000);
+  }
+
+  100% {
+    fill: transparent;
+  }
+}
   
-  @keyframes main-body-coloring {
-    100% {
-      fill: var(--main-body-color-active);
-    }
+@keyframes contour-coloring {
+  0% {
+    fill: transparent;
   }
+
+  100% {
+    fill: var(--core-color-active, #f00000);
+  }
+}
+
   
-  @keyframes contour-coloring {
-    100% {
-      fill: var(--core-color-active);
-    }
+@keyframes icon-scaling {
+  100% {
+    transform: scale(1.5);
+    transform-origin: center;
   }
+}
   
-  @keyframes icon-scaling {
-    100% {
-      transform: scale(1.5);
-      transform-origin: center;
-    }
+@keyframes sparks-coloring {
+  0% {
+    fill: transparent;
   }
-  
-  @keyframes sparks-coloring {
-    100% {
-      fill: var(--sparks-fill-color);
-    }
+
+  100% {
+    fill: var(--sparks-fill-color, #f00000);
   }
+}
+
+/*like-icon*/
+
+.like-icon {
+  position: absolute;
+}
+
+.like-icon .core {
+  fill: var(--core-color-transparent, rgb(0 0 0/ 0%));
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon .main-body {
+  fill: var(--main-body-color-transparent, rgb(0 0 0/ 0%));
+  transition: fill 0.3s linear;
+}
+
+.like-icon .contour {
+  fill: var(--contour-color, rgb(0 0 0));
+}
+
+.like-icon .sparks {
+  fill: transparent;
+}
+
+.like-icon.is-liked .core {
+  animation: core-coloring 0.3s linear;
+  animation-fill-mode: forwards;
+}
+
+.like-icon.is-liked .main-body {
+  animation: main-body-coloring 0.3s 0.05s linear;
+  animation-fill-mode: forwards;
+}
+
+.like-icon.is-liked .contour {
+  animation: contour-coloring 0.3s 0.06s linear;
+  animation-fill-mode: forwards;
+}
+
+.like-icon.is-liked .body {
+  transform-origin: center;
+  animation: icon-scaling 0.3s ease-in 1 alternate;
+}
+
+.like-icon.is-liked .sparks {
+  transform-origin: center;
+  animation: sparks-coloring 0.3s ease-in 1 alternate;
+}
+
+.like-icon .main-body {
+  animation: back-main-body-coloring 0.3s linear;
+}
+
+.card__icon-button:hover .like-icon .core {
+  fill: var(--core-color, rgb(0 0 0));
+  transition: fill 0.3s linear;
+}
+
+.card__icon-button:hover .like-icon .main-body {
+  fill: var(--main-body-color, rgb(0 0 0));
+  transition: fill 0.3s 0.05s linear;
+}
+
+.card__icon-button:active .like-icon .core {
+  fill: var(--core-color-active, #f00000);
+  transition: fill 0.3s linear;
+}
+
+/*buttons*/
+
+.theme-menu__button::after {
+  transition: transform var(--transform-time, 0.3s), color var(--transform-time, 0.3s);
+  transition-timing-function: var(--transition-function, ease);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:disabled {
+  transition: color var(--transform-time, 0.3s);
+  transition-timing-function: var(--transition-function, ease);
+}
+
+.theme-menu__button:disabled::before {
+  animation: moving 0.5s ease infinite reverse;
+}
+
+.card__icon-button {
+  transition: outline var(--transform-time, 0.3s);
+  transition-timing-function: var(--transition-function, ease);
+}
+
+.button {
+  transition: box-shadow var(--transform-time, 0.3s);
+  transition-timing-function: var(--transition-function, ease);
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color, #000000);
+}
+
+.button::before {
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.dialog {
+  transition: opacity 0.3s ease-in-out;
+}
