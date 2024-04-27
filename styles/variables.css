@@ -17,6 +17,7 @@
   --mobile-width: 100%;
   --transform-time: 0.3s;
   --transition-function: ease;
+  --heart-animation-color: #f00000;
   --sparks-fill-color: #f00000;
   --sparks-fill-color-transparent: rgb(255 0 0 / 0%);
   --contour-color: rgb(0 0 0);

@@ -25,9 +25,13 @@
     repeating-linear-gradient(180deg, #d3d3d3 0px 2px, transparent 2px 4px),
     linear-gradient(180deg, #e7e7e7 0.01%, #1a1a1a 100%));
   background-size: var(--bg-size, cover);
+  background-attachment: fixed;
   background-repeat: no-repeat;
   color: var(--accent-color, #000000);
-  padding: 6.25em clamp(0rem, 34.648vw - 8.121rem, 23.063rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6.25em 0;
 }
 
 .header {
@@ -41,6 +45,7 @@
   margin-block-end: 6.25em;
   background-color: var(--bg-color, #FFFFFF);
   border: 2px solid var(--accent-color, #000000);
+  inline-size: clamp(23.313rem, 30.704vw + 16.116rem, 43.75rem); 
 }
 
 @media (width <= 375px) {
@@ -134,6 +139,7 @@
   flex-direction: column;
   background-color: var(--bg-color, #FFFFFF);
   border: 2px solid var(--accent-color, #000000);
+  inline-size: clamp(23.313rem, 30.704vw + 16.116rem, 43.75rem); 
 }
 
 .posts-menu__title {
@@ -240,6 +246,8 @@
   line-height: 1.1;
 }
 
+/*buttons*/
+
 .buttons {
   align-self: flex-end;
   display: flex;
@@ -249,24 +257,13 @@
 }
 
 .card__icon-button {
-  position: relative;
   display: flex;
   align-items: center;
-  background: none;
   border: none;
   padding-block-start: 0.3125em;
   inline-size: 42px;
-  cursor: pointer;
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.card__icon-button:focus {
-  outline: none;
-}
-
-.card__icon-button:focus-visible {
-  outline: 2px solid var(--accent-color, #000000);
 }
 
 .card__like-button {
@@ -275,11 +272,14 @@
   inline-size: 130px;
 }
 
-.button {
-  position: relative;
-  border: 2px solid var(--accent-color, #000000);
+.button-main {
   background-color: transparent;
   cursor: pointer;
+  position: relative;
+}
+
+.button {
+  border: 2px solid var(--accent-color, #000000);
 }
 
 .button:focus {
@@ -296,7 +296,7 @@
 
 .footer {
   margin: 50px auto 0;
-  max-inline-size: 314px;
+  inline-size: clamp(19.125rem, 4.601vw + 18.047rem, 22.188rem);
   background-color: var(--bg-color, #FFFFFF);
 }
 
@@ -349,7 +349,7 @@
 /*поп-ап*/
 
 .dialog {
-  max-inline-size: 343px;
+  max-inline-size: clamp(21.313rem, 1.502vw + 20.96rem, 22.313rem);
   inset: 0;
   position: fixed;
   padding: 32px 42px;
